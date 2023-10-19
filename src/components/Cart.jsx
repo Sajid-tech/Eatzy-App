@@ -65,10 +65,18 @@ const Cart = () => {
           </button>
         </div>
       </div>
+      <div
+        className={`rounded-full font-bold bg-grren-600 p-[1] fixed bottom-11 right-6 z-10 
+        ${totalQty > 0 && " animate-bounce delay-500  "}
+        `}
+      >
+        {totalQty}
+      </div>
       <FaShoppingCart
         onClick={() => setActiveCart(!activeCart)}
-        className={`rounded-full bg-white shadow-md text-5xl p-3 fixed bottom-4 right-4 ${
-          totalQty > 0 && "animate-bounce delay-500 transition-all"
+        className={`rounded-full bg-white shadow-md text-5xl p-3 fixed bottom-4 right-4 cursor-pointer ${
+          totalQty > 0 &&
+          "animate-bounce delay-500 transition-all  bg-green-600 text-neutral-50"
         } `}
       />
     </>

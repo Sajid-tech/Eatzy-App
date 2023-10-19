@@ -37,6 +37,3 @@ const CartSlice = createSlice({
 export const { addToCart, removeFromCart, incrementQty, decrementQty } =
   CartSlice.actions;
 export default CartSlice.reducer;
-
-// reducer means small small fucntion and that store functions is called reducers
-// reducer means aesa fucntion jisse aap triggered kroge
