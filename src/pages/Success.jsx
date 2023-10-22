@@ -1,23 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { PropagateLoader } from "react-spinners";
+// import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Confetti from "react-confetti";
 
 const Success = () => {
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 2000);
   }, []);
+
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(0);
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="relative h-screen bg-gradient-to-r from-indigo-500 to-purple-600">
+      <Confetti />
       {loading ? (
-        <PropagateLoader color="#36d7b7" />
+        <PropagateLoader color="#ffffff" />
       ) : (
-        <div>
-          <h2 className="text-3xl font-semibold mb-4 text-center">
+        <div className="max-w-sm mx-auto text-center">
+          <div className="flex justify-center">
+            <i class="text-9xl text-green-500 ">✓</i>
+          </div>
+          <h2 className="text-3xl font-semibold mb-4 text-white">
             Order Successful!
           </h2>
-          <p>Your order has been sucessfully placed</p>
+          <p className="text-gray-200">
+            Your order has been sucessfully placed. We will send you a
+            confirmation email shortly.
+          </p>
+          <div
+            onClick={handleNavigate}
+            className="mt-8 inline-block bg-white hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded cursor-pointer"
+          >
+            Continue Shopping
+          </div>
         </div>
       )}
     </div>
