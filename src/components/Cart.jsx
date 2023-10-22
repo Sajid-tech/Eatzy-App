@@ -4,6 +4,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import ItemCard from "./ItemCard";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const Cart = () => {
   const [activeCart, setActiveCart] = useState(false);
@@ -17,8 +18,13 @@ const Cart = () => {
 
   const navigate = useNavigate();
 
+  const notify = () => {
+    toast.success("Cart Close");
+  };
+
   return (
     <>
+      <Toaster position="top-center" reverseOrder={false} />
       <div
         className={`fixed right-0 top-0 w-full lg:w-[20vw] h-full p-5 bg-white mb-3 ${
           activeCart ? "translate-x-0" : "translate-x-full"
@@ -27,7 +33,10 @@ const Cart = () => {
         <div className="flex justify-between items-center my-3">
           <span className="text-xl font-bold text-gray-800">My Order</span>
           <IoMdClose
-            onClick={() => setActiveCart(!activeCart)}
+            onClick={() => {
+              setActiveCart(!activeCart);
+              notify();
+            }}
             className="border-2 border-gray-600 text-gray-600 font-bold  p-1 text-xl  rounded-md hover:text-red-300 hover:border-red-300 cursor-pointer"
           />
         </div>
@@ -76,7 +85,7 @@ const Cart = () => {
         onClick={() => setActiveCart(!activeCart)}
         className={`rounded-full bg-white shadow-md text-5xl p-3 fixed bottom-4 right-4 cursor-pointer ${
           totalQty > 0 &&
-          "animate-bounce delay-500 transition-all  bg-green-600 text-neutral-50"
+          "animate-bounce delay-500 transition-all  bg-green-600"
         } `}
       />
     </>

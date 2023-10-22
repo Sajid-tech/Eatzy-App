@@ -3,7 +3,7 @@ import { AiFillStar } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/slices/CartSlice";
 
-const FoodCard = ({ id, name, price, desc, img, rating }) => {
+const FoodCard = ({ id, name, price, desc, img, rating, handleToast }) => {
   const dispatch = useDispatch();
 
   return (
@@ -34,6 +34,7 @@ const FoodCard = ({ id, name, price, desc, img, rating }) => {
                 qty: 1,
               })
             );
+            handleToast(name);
           }}
           className="p-1 text-white bg-green-500 hover:bg-green-600 rounded-lg text-sm"
         >
