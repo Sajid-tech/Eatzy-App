@@ -11,7 +11,6 @@ const CategoryMenu = () => {
       ...new Set(FoodData.map((food) => food.category)),
     ];
     setCategories(uniqueCategories);
-    console.log(uniqueCategories);
   };
 
   useEffect(() => {
@@ -23,8 +22,20 @@ const CategoryMenu = () => {
 
   return (
     <div className="ml-6">
-      <h3 className="text-xl font-semibold">Find the best food</h3>
-      <div className="my-5 flex gap-3 overflow-x-scroll scroll-smooth lg:overflow-x-hidden">
+      <div className="flex-1 md:w-1/2">
+        <div className="p-10 md:p-20 text-black">
+          <h1 className="text-5xl font-bold">Find the best food</h1>
+
+          <h2 className="text-3xl font-light">
+            Ordering food made easy, eating made delightful. It’s not just a
+            Food
+            <br />
+            <h3 className="text-2xl text-red-600">Its a Expirence!</h3>
+          </h2>
+        </div>
+      </div>
+
+      <div className="my-5 flex lg:justify-center gap-3 overflow-x-scroll scroll-smooth lg:overflow-x-hidden">
         <button
           onClick={() => dispatch(setCategory("All"))}
           className={`px-3 py-2 bg-gray-200 font-bold rounded-lg hover:bg-green-500 hover:text-white ${
@@ -40,7 +51,7 @@ const CategoryMenu = () => {
               key={index}
               className={`px-3 py-2 bg-gray-200 font-bold rounded-lg hover:bg-green-500 hover:text-white ${
                 selectedCategory === category && "bg-green-500 text-white"
-              } `}
+              }`}
             >
               {category}
             </button>
