@@ -16,7 +16,8 @@ const Success = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(0);
+    window.location.reload();
+    // navigate(0);
   };
 
   return (
