@@ -20,7 +20,7 @@ const Success = () => {
   };
 
   return (
-    <div className="relative h-screen bg-gradient-to-r from-indigo-500 to-purple-600">
+    <div className="relative h-screen  w-full bg-gradient-to-r from-indigo-500 to-purple-600">
       <Confetti />
       {loading ? (
         <PropagateLoader color="#ffffff" />
@@ -40,7 +40,7 @@ const Success = () => {
             onClick={handleNavigate}
             className="mt-8 inline-block bg-white hover:bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded cursor-pointer"
           >
-            Continue Shopping
+            What are you craving next?
           </div>
         </div>
       )}
